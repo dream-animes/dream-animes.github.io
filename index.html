@@ -1,607 +1,714 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <style>
+
+<head>
+    <style>
         /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-html, body{
-    width: 100%;
-    height: 100%;
-}
-body {
-    overflow-y: hidden;
-    background-color: #000;
-}
-video {
-    width: 100%;
-    object-fit: cover;
-    object-position: center bottom;
-    height: auto;
-    max-height: 100vh;
-}
-.center {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
 
-.logo-play {
-    display: none;
-    position: absolute;
-    
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-}
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
 
-.logo-play:hover svg g {
-fill: #FFF;
-}
+        body {
+            line-height: 1;
+        }
 
-.msg {
-    font-size: 16px;
-    text-shadow: 2px 2px #999;
-    font-weight: bold;
-}
+        ol,
+        ul {
+            list-style: none;
+        }
 
-.msg {
-  position: absolute;
-  top: 200%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  max-width: 100%;
-  font: 300 30px/1 'Open Sans Condensed', sans-serif;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  animation: 60s credits linear forwards;
-}
+        blockquote,
+        q {
+            quotes: none;
+        }
 
-.msg .title {
-    color: #1997c6;
-    text-shadow: 2px 2px #a3def3 !important;
-}
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
 
-.msg p {
-    margin-bottom: 30px;
-    font-weight: bold;
-    text-shadow: 2px 2px #41b3dd;
-}
-@keyframes credits {
-  0% {
-    top: 100%;
-  }
-  100% {
-    top: -500%;
-  }
-}
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow-y: hidden;
+            background-color: #000;
+        }
+
+        video {
+            width: 100%;
+            object-fit: cover;
+            object-position: center bottom;
+            height: auto;
+            max-height: 100vh;
+        }
+
+        .center {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-play {
+            display: none;
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        .logo-play:hover svg g {
+            fill: #FFF;
+        }
+
+        .msg {
+            font-size: 16px;
+            text-shadow: 2px 2px #999;
+            font-weight: bold;
+        }
+
+        .msg {
+            position: absolute;
+            top: 200%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            max-width: 100%;
+            font: 300 30px/1 'Open Sans Condensed', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            color: #fff;
+            animation: 60s credits linear forwards;
+        }
+
+        .msg .title {
+            color: #1997c6;
+            text-shadow: 2px 2px #a3def3 !important;
+        }
+
+        .msg p {
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px #41b3dd;
+        }
+
+        @keyframes credits {
+            0% {
+                top: 100%;
+            }
+
+            100% {
+                top: -500%;
+            }
+        }
 
 
-.hero {
-  font-size: clamp(35px, 8vw, 80px);
-  line-height: 1;
-  display: inline-block;
-  color: #fff;
-  z-index: 2;
-  letter-spacing: 10px;
+        .hero {
+            font-size: clamp(35px, 8vw, 80px);
+            line-height: 1;
+            display: inline-block;
+            color: #fff;
+            z-index: 2;
+            letter-spacing: 10px;
 
-  /* Bright things in dark environments usually cast that light, giving off a glow */
-  filter: drop-shadow(0 1px 3px);
-}
+            /* Bright things in dark environments usually cast that light, giving off a glow */
+            filter: drop-shadow(0 1px 3px);
+        }
 
 
 
-.glitch span {
-  animation: paths 5s step-end infinite;
-}
+        .glitch span {
+            animation: paths 5s step-end infinite;
+        }
 
-.glitch::before {
-  animation: paths 5s step-end infinite, opacity 5s step-end infinite,
-    font 8s step-end infinite, movement 10s step-end infinite;
-}
+        .glitch::before {
+            animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+                font 8s step-end infinite, movement 10s step-end infinite;
+        }
 
-.glitch::after {
-  animation: paths 5s step-end infinite, opacity 5s step-end infinite,
-    font 7s step-end infinite, movement 8s step-end infinite;
-}
+        .glitch::after {
+            animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+                font 7s step-end infinite, movement 8s step-end infinite;
+        }
 
-.paths {
-  animation: paths 5s step-end infinite;
-}
+        .paths {
+            animation: paths 5s step-end infinite;
+        }
 
-@keyframes paths {
-  0% {
-    clip-path: polygon(
-      0% 43%,
-      83% 43%,
-      83% 22%,
-      23% 22%,
-      23% 24%,
-      91% 24%,
-      91% 26%,
-      18% 26%,
-      18% 83%,
-      29% 83%,
-      29% 17%,
-      41% 17%,
-      41% 39%,
-      18% 39%,
-      18% 82%,
-      54% 82%,
-      54% 88%,
-      19% 88%,
-      19% 4%,
-      39% 4%,
-      39% 14%,
-      76% 14%,
-      76% 52%,
-      23% 52%,
-      23% 35%,
-      19% 35%,
-      19% 8%,
-      36% 8%,
-      36% 31%,
-      73% 31%,
-      73% 16%,
-      1% 16%,
-      1% 56%,
-      50% 56%,
-      50% 8%
-    );
-  }
+        @keyframes paths {
+            0% {
+                clip-path: polygon(0% 43%,
+                        83% 43%,
+                        83% 22%,
+                        23% 22%,
+                        23% 24%,
+                        91% 24%,
+                        91% 26%,
+                        18% 26%,
+                        18% 83%,
+                        29% 83%,
+                        29% 17%,
+                        41% 17%,
+                        41% 39%,
+                        18% 39%,
+                        18% 82%,
+                        54% 82%,
+                        54% 88%,
+                        19% 88%,
+                        19% 4%,
+                        39% 4%,
+                        39% 14%,
+                        76% 14%,
+                        76% 52%,
+                        23% 52%,
+                        23% 35%,
+                        19% 35%,
+                        19% 8%,
+                        36% 8%,
+                        36% 31%,
+                        73% 31%,
+                        73% 16%,
+                        1% 16%,
+                        1% 56%,
+                        50% 56%,
+                        50% 8%);
+            }
 
-  5% {
-    clip-path: polygon(
-      0% 29%,
-      44% 29%,
-      44% 83%,
-      94% 83%,
-      94% 56%,
-      11% 56%,
-      11% 64%,
-      94% 64%,
-      94% 70%,
-      88% 70%,
-      88% 32%,
-      18% 32%,
-      18% 96%,
-      10% 96%,
-      10% 62%,
-      9% 62%,
-      9% 84%,
-      68% 84%,
-      68% 50%,
-      52% 50%,
-      52% 55%,
-      35% 55%,
-      35% 87%,
-      25% 87%,
-      25% 39%,
-      15% 39%,
-      15% 88%,
-      52% 88%
-    );
-  }
+            5% {
+                clip-path: polygon(0% 29%,
+                        44% 29%,
+                        44% 83%,
+                        94% 83%,
+                        94% 56%,
+                        11% 56%,
+                        11% 64%,
+                        94% 64%,
+                        94% 70%,
+                        88% 70%,
+                        88% 32%,
+                        18% 32%,
+                        18% 96%,
+                        10% 96%,
+                        10% 62%,
+                        9% 62%,
+                        9% 84%,
+                        68% 84%,
+                        68% 50%,
+                        52% 50%,
+                        52% 55%,
+                        35% 55%,
+                        35% 87%,
+                        25% 87%,
+                        25% 39%,
+                        15% 39%,
+                        15% 88%,
+                        52% 88%);
+            }
 
-  30% {
-    clip-path: polygon(
-      0% 53%,
-      93% 53%,
-      93% 62%,
-      68% 62%,
-      68% 37%,
-      97% 37%,
-      97% 89%,
-      13% 89%,
-      13% 45%,
-      51% 45%,
-      51% 88%,
-      17% 88%,
-      17% 54%,
-      81% 54%,
-      81% 75%,
-      79% 75%,
-      79% 76%,
-      38% 76%,
-      38% 28%,
-      61% 28%,
-      61% 12%,
-      55% 12%,
-      55% 62%,
-      68% 62%,
-      68% 51%,
-      0% 51%,
-      0% 92%,
-      63% 92%,
-      63% 4%,
-      65% 4%
-    );
-  }
+            30% {
+                clip-path: polygon(0% 53%,
+                        93% 53%,
+                        93% 62%,
+                        68% 62%,
+                        68% 37%,
+                        97% 37%,
+                        97% 89%,
+                        13% 89%,
+                        13% 45%,
+                        51% 45%,
+                        51% 88%,
+                        17% 88%,
+                        17% 54%,
+                        81% 54%,
+                        81% 75%,
+                        79% 75%,
+                        79% 76%,
+                        38% 76%,
+                        38% 28%,
+                        61% 28%,
+                        61% 12%,
+                        55% 12%,
+                        55% 62%,
+                        68% 62%,
+                        68% 51%,
+                        0% 51%,
+                        0% 92%,
+                        63% 92%,
+                        63% 4%,
+                        65% 4%);
+            }
 
-  45% {
-    clip-path: polygon(
-      0% 33%,
-      2% 33%,
-      2% 69%,
-      58% 69%,
-      58% 94%,
-      55% 94%,
-      55% 25%,
-      33% 25%,
-      33% 85%,
-      16% 85%,
-      16% 19%,
-      5% 19%,
-      5% 20%,
-      79% 20%,
-      79% 96%,
-      93% 96%,
-      93% 50%,
-      5% 50%,
-      5% 74%,
-      55% 74%,
-      55% 57%,
-      96% 57%,
-      96% 59%,
-      87% 59%,
-      87% 65%,
-      82% 65%,
-      82% 39%,
-      63% 39%,
-      63% 92%,
-      4% 92%,
-      4% 36%,
-      24% 36%,
-      24% 70%,
-      1% 70%,
-      1% 43%,
-      15% 43%,
-      15% 28%,
-      23% 28%,
-      23% 71%,
-      90% 71%,
-      90% 86%,
-      97% 86%,
-      97% 1%,
-      60% 1%,
-      60% 67%,
-      71% 67%,
-      71% 91%,
-      17% 91%,
-      17% 14%,
-      39% 14%,
-      39% 30%,
-      58% 30%,
-      58% 11%,
-      52% 11%,
-      52% 83%,
-      68% 83%
-    );
-  }
+            45% {
+                clip-path: polygon(0% 33%,
+                        2% 33%,
+                        2% 69%,
+                        58% 69%,
+                        58% 94%,
+                        55% 94%,
+                        55% 25%,
+                        33% 25%,
+                        33% 85%,
+                        16% 85%,
+                        16% 19%,
+                        5% 19%,
+                        5% 20%,
+                        79% 20%,
+                        79% 96%,
+                        93% 96%,
+                        93% 50%,
+                        5% 50%,
+                        5% 74%,
+                        55% 74%,
+                        55% 57%,
+                        96% 57%,
+                        96% 59%,
+                        87% 59%,
+                        87% 65%,
+                        82% 65%,
+                        82% 39%,
+                        63% 39%,
+                        63% 92%,
+                        4% 92%,
+                        4% 36%,
+                        24% 36%,
+                        24% 70%,
+                        1% 70%,
+                        1% 43%,
+                        15% 43%,
+                        15% 28%,
+                        23% 28%,
+                        23% 71%,
+                        90% 71%,
+                        90% 86%,
+                        97% 86%,
+                        97% 1%,
+                        60% 1%,
+                        60% 67%,
+                        71% 67%,
+                        71% 91%,
+                        17% 91%,
+                        17% 14%,
+                        39% 14%,
+                        39% 30%,
+                        58% 30%,
+                        58% 11%,
+                        52% 11%,
+                        52% 83%,
+                        68% 83%);
+            }
 
-  76% {
-    clip-path: polygon(
-      0% 26%,
-      15% 26%,
-      15% 73%,
-      72% 73%,
-      72% 70%,
-      77% 70%,
-      77% 75%,
-      8% 75%,
-      8% 42%,
-      4% 42%,
-      4% 61%,
-      17% 61%,
-      17% 12%,
-      26% 12%,
-      26% 63%,
-      73% 63%,
-      73% 43%,
-      90% 43%,
-      90% 67%,
-      50% 67%,
-      50% 41%,
-      42% 41%,
-      42% 46%,
-      50% 46%,
-      50% 84%,
-      96% 84%,
-      96% 78%,
-      49% 78%,
-      49% 25%,
-      63% 25%,
-      63% 14%
-    );
-  }
+            76% {
+                clip-path: polygon(0% 26%,
+                        15% 26%,
+                        15% 73%,
+                        72% 73%,
+                        72% 70%,
+                        77% 70%,
+                        77% 75%,
+                        8% 75%,
+                        8% 42%,
+                        4% 42%,
+                        4% 61%,
+                        17% 61%,
+                        17% 12%,
+                        26% 12%,
+                        26% 63%,
+                        73% 63%,
+                        73% 43%,
+                        90% 43%,
+                        90% 67%,
+                        50% 67%,
+                        50% 41%,
+                        42% 41%,
+                        42% 46%,
+                        50% 46%,
+                        50% 84%,
+                        96% 84%,
+                        96% 78%,
+                        49% 78%,
+                        49% 25%,
+                        63% 25%,
+                        63% 14%);
+            }
 
-  90% {
-    clip-path: polygon(
-      0% 41%,
-      13% 41%,
-      13% 6%,
-      87% 6%,
-      87% 93%,
-      10% 93%,
-      10% 13%,
-      89% 13%,
-      89% 6%,
-      3% 6%,
-      3% 8%,
-      16% 8%,
-      16% 79%,
-      0% 79%,
-      0% 99%,
-      92% 99%,
-      92% 90%,
-      5% 90%,
-      5% 60%,
-      0% 60%,
-      0% 48%,
-      89% 48%,
-      89% 13%,
-      80% 13%,
-      80% 43%,
-      95% 43%,
-      95% 19%,
-      80% 19%,
-      80% 85%,
-      38% 85%,
-      38% 62%
-    );
-  }
+            90% {
+                clip-path: polygon(0% 41%,
+                        13% 41%,
+                        13% 6%,
+                        87% 6%,
+                        87% 93%,
+                        10% 93%,
+                        10% 13%,
+                        89% 13%,
+                        89% 6%,
+                        3% 6%,
+                        3% 8%,
+                        16% 8%,
+                        16% 79%,
+                        0% 79%,
+                        0% 99%,
+                        92% 99%,
+                        92% 90%,
+                        5% 90%,
+                        5% 60%,
+                        0% 60%,
+                        0% 48%,
+                        89% 48%,
+                        89% 13%,
+                        80% 13%,
+                        80% 43%,
+                        95% 43%,
+                        95% 19%,
+                        80% 19%,
+                        80% 85%,
+                        38% 85%,
+                        38% 62%);
+            }
 
-  1%,
-  7%,
-  33%,
-  47%,
-  78%,
-  93% {
-    clip-path: none;
-  }
-}
+            1%,
+            7%,
+            33%,
+            47%,
+            78%,
+            93% {
+                clip-path: none;
+            }
+        }
 
-.movement {
-  /* Normally this position would be absolute & on the layers, set to relative here so we can see it on the div */
-  position: relative;
-  animation: movement 8s step-end infinite;
-}
+        .movement {
+            /* Normally this position would be absolute & on the layers, set to relative here so we can see it on the div */
+            position: relative;
+            animation: movement 8s step-end infinite;
+        }
 
-@keyframes movement {
-  0% {
-    top: 0px;
-    left: -20px;
-  }
+        @keyframes movement {
+            0% {
+                top: 0px;
+                left: -20px;
+            }
 
-  15% {
-    top: 10px;
-    left: 10px;
-  }
+            15% {
+                top: 10px;
+                left: 10px;
+            }
 
-  60% {
-    top: 5px;
-    left: -10px;
-  }
+            60% {
+                top: 5px;
+                left: -10px;
+            }
 
-  75% {
-    top: -5px;
-    left: 20px;
-  }
+            75% {
+                top: -5px;
+                left: 20px;
+            }
 
-  100% {
-    top: 10px;
-    left: 5px;
-  }
-}
+            100% {
+                top: 10px;
+                left: 5px;
+            }
+        }
 
-.opacity {
-  animation: opacity 5s step-end infinite;
-}
+        .opacity {
+            animation: opacity 5s step-end infinite;
+        }
 
-@keyframes opacity {
-  0% {
-    opacity: 0.1;
-  }
+        @keyframes opacity {
+            0% {
+                opacity: 0.1;
+            }
 
-  5% {
-    opacity: 0.7;
-  }
+            5% {
+                opacity: 0.7;
+            }
 
-  30% {
-    opacity: 0.4;
-  }
+            30% {
+                opacity: 0.4;
+            }
 
-  45% {
-    opacity: 0.6;
-  }
+            45% {
+                opacity: 0.6;
+            }
 
-  76% {
-    opacity: 0.4;
-  }
+            76% {
+                opacity: 0.4;
+            }
 
-  90% {
-    opacity: 0.8;
-  }
+            90% {
+                opacity: 0.8;
+            }
 
-  1%,
-  7%,
-  33%,
-  47%,
-  78%,
-  93% {
-    opacity: 0;
-  }
-}
+            1%,
+            7%,
+            33%,
+            47%,
+            78%,
+            93% {
+                opacity: 0;
+            }
+        }
 
-.font {
-  animation: font 7s step-end infinite;
-}
+        .font {
+            animation: font 7s step-end infinite;
+        }
 
-@keyframes font {
-  0% {
-    font-weight: 100;
-    color: #e0287d;
-    filter: blur(3px);
-  }
+        @keyframes font {
+            0% {
+                font-weight: 100;
+                color: #e0287d;
+                filter: blur(3px);
+            }
 
-  20% {
-    font-weight: 500;
-    color: #fff;
-    filter: blur(0);
-  }
+            20% {
+                font-weight: 500;
+                color: #fff;
+                filter: blur(0);
+            }
 
-  50% {
-    font-weight: 300;
-    color: #1bc7fb;
-    filter: blur(2px);
-  }
+            50% {
+                font-weight: 300;
+                color: #1bc7fb;
+                filter: blur(2px);
+            }
 
-  60% {
-    font-weight: 700;
-    color: #fff;
-    filter: blur(0);
-  }
+            60% {
+                font-weight: 700;
+                color: #fff;
+                filter: blur(0);
+            }
 
-  90% {
-    font-weight: 500;
-    color: #e0287d;
-    filter: blur(6px);
-  }
-}
+            90% {
+                font-weight: 500;
+                color: #e0287d;
+                filter: blur(6px);
+            }
+        }
 
-.footer {
-    position: absolute;
-    right: 10px;
-    font-size: 14px;
-    color: #FFF;
-    bottom:  10px;
-}
+        .footer {
+            position: absolute;
+            right: 10px;
+            font-size: 14px;
+            color: #FFF;
+            bottom: 10px;
+        }
 
-.footer a {
-    margin-right: 5px;
-}
+        .footer a {
+            margin-right: 5px;
+        }
 
-a {
-    color: #FFF;
-}
-      </style>  
-    </head>
-    <body>
-        <div class="center">
-            <video src="https://cdn.discordapp.com/attachments/713184964270882837/1094830294923739207/Y2Mate.is_-_YOASOBI_-_Tabun_-_Traducao_PT-fUFyQJgF1dU-1080p-1656837372670.mp4" autoplay></video> 
-            <div class="logo-play" title="Aperte para ver os créditos"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10000 8000" class="" style="width: 150px; height: 150px;"><g fill="#1997c6"><path d="M5308.835 7007.903c-343.004-543.068-629.799-998.76-637.322-1012.649-12.838-23.703 27.402-91.096 655.626-1098.002 368.117-590.011 668.143-1076.806 666.724-1081.766-1.418-4.96-382.34-617.187-846.495-1360.505-464.155-743.318-843.977-1356.71-844.049-1363.094-.152-13.396 656.146-1070.613 664.299-1070.105 2.975.185 17.77 20.574 32.88 45.307 15.108 24.734 546.74 874.555 1181.403 1888.49 644.88 1030.26 1151.95 1850.91 1149.437 1860.27-2.473 9.214-298.031 495.426-656.796 1080.474-391.93 639.133-649.213 1068.91-644.568 1076.718 15.771 26.509 1223.032 1975.438 1237.985 1998.528l15.534 23.986-675.507-.129-675.507-.129z"></path><path d="M8595.04 7982.23c-28.671-36.309-1633.816-2610.46-1633.816-2620.132 0-12.884 674.178-1065.822 682.277-1065.588 4.79.138 2292.372 3668.972 2300.907 3690.205 1.955 4.862-298.486 8.84-667.645 8.84-524.24 0-673.504-2.918-681.723-13.326zM3677.767 4391.822c-389.91-621.03-708.928-1131.854-708.928-1135.162 0-9.94 660.52-1103.04 666.286-1102.641 8.776.605 1423.386 2261.144 1420.826 2270.472-4.007 14.603-644.02 1070.361-657.023 1083.818-9.3 9.624-182.223-258.092-721.161-1116.487zM14.877 7968.906c9.604-14.657 610.23-977.707 1334.726-2140.11 724.495-1162.404 1321.148-2117.524 1325.896-2122.488 6.968-7.287 2686.639 4265.507 2686.639 4283.905 0 2.938-311.056 5.342-691.235 5.342h-691.236L3325.005 6940.5c-360.064-580.28-657.063-1055.209-659.996-1055.397-5.985-.384-628.97 1006.32-628.97 1016.375 0 3.53 163.953 7.68 364.341 9.224l364.342 2.805 338.917 533.028c186.404 293.166 339.07 536.627 339.256 541.024.186 4.398-774.97 7.996-1722.57 7.996H-2.583z"></path></g></svg></div>
-            <div class="msg" style="display: none">
-                <p class="title">O nosso muito obrigado a todos que fizeram parte do projeto:</p>
-                <p>Ayase</p>
-                <p>Azuki-san</p>
-                <p>Bigodi</p>
-                <p>Calha</p>
-                <p>Ero</p>
-                <p>Evil</p>
-                <p>GodZilla</p>
-                <p>HenriqueMorales</p>
-                <p>INoarh</p>
-                <p>KenShaw</p>
-                <p>Lelezyn</p>
-                <p>Machezzi</p>
-                <p>Mak</p>
-                <p>Nasgar</p>
-                <p>Nefer</p>
-                <p>NevesPT</p>
-                <p>Noop</p>
-                <p>Rampe</p>
-                <p>TachibanaMei</p>
-                <p>They</p>
-                <p>Ulterior</p>
-                <p>Zick</p>
-                <p>flash21</p>
-                <p>e todos os outros que não couberam na lista</p>
-                <p  class="hero glitch layers" data-text="The end." style="margin-top: 200%"><span>The end.</span></p>
-            </div>
+        a {
+            color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <video
+            src="https://cdn.discordapp.com/attachments/713184964270882837/1094830294923739207/Y2Mate.is_-_YOASOBI_-_Tabun_-_Traducao_PT-fUFyQJgF1dU-1080p-1656837372670.mp4"
+            autoplay></video>
+        <div class="logo-play" title="Aperte para ver os créditos"><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 10000 8000" class="" style="width: 150px; height: 150px;">
+                <g fill="#1997c6">
+                    <path
+                        d="M5308.835 7007.903c-343.004-543.068-629.799-998.76-637.322-1012.649-12.838-23.703 27.402-91.096 655.626-1098.002 368.117-590.011 668.143-1076.806 666.724-1081.766-1.418-4.96-382.34-617.187-846.495-1360.505-464.155-743.318-843.977-1356.71-844.049-1363.094-.152-13.396 656.146-1070.613 664.299-1070.105 2.975.185 17.77 20.574 32.88 45.307 15.108 24.734 546.74 874.555 1181.403 1888.49 644.88 1030.26 1151.95 1850.91 1149.437 1860.27-2.473 9.214-298.031 495.426-656.796 1080.474-391.93 639.133-649.213 1068.91-644.568 1076.718 15.771 26.509 1223.032 1975.438 1237.985 1998.528l15.534 23.986-675.507-.129-675.507-.129z">
+                    </path>
+                    <path
+                        d="M8595.04 7982.23c-28.671-36.309-1633.816-2610.46-1633.816-2620.132 0-12.884 674.178-1065.822 682.277-1065.588 4.79.138 2292.372 3668.972 2300.907 3690.205 1.955 4.862-298.486 8.84-667.645 8.84-524.24 0-673.504-2.918-681.723-13.326zM3677.767 4391.822c-389.91-621.03-708.928-1131.854-708.928-1135.162 0-9.94 660.52-1103.04 666.286-1102.641 8.776.605 1423.386 2261.144 1420.826 2270.472-4.007 14.603-644.02 1070.361-657.023 1083.818-9.3 9.624-182.223-258.092-721.161-1116.487zM14.877 7968.906c9.604-14.657 610.23-977.707 1334.726-2140.11 724.495-1162.404 1321.148-2117.524 1325.896-2122.488 6.968-7.287 2686.639 4265.507 2686.639 4283.905 0 2.938-311.056 5.342-691.235 5.342h-691.236L3325.005 6940.5c-360.064-580.28-657.063-1055.209-659.996-1055.397-5.985-.384-628.97 1006.32-628.97 1016.375 0 3.53 163.953 7.68 364.341 9.224l364.342 2.805 338.917 533.028c186.404 293.166 339.07 536.627 339.256 541.024.186 4.398-774.97 7.996-1722.57 7.996H-2.583z">
+                    </path>
+                </g>
+            </svg></div>
+        <div class="msg" style="display: none">
+            <p class="title">O nosso muito obrigado a todos que fizeram parte do projeto:</p>
+            <p>Ayase</p>
+            <p>Azuki-san</p>
+            <p>Bigodi</p>
+            <p>Calha</p>
+            <p>Ero</p>
+            <p>Evil</p>
+            <p>GodZilla</p>
+            <p>HenriqueMorales</p>
+            <p>INoarh</p>
+            <p>KenShaw</p>
+            <p>Lelezyn</p>
+            <p>Machezzi</p>
+            <p>Mak</p>
+            <p>Nasgar</p>
+            <p>Nefer</p>
+            <p>NevesPT</p>
+            <p>Noop</p>
+            <p>Rampe</p>
+            <p>TachibanaMei</p>
+            <p>They</p>
+            <p>Ulterior</p>
+            <p>Zick</p>
+            <p>flash21</p>
+            <p>e todos os outros que não couberam na lista</p>
+            <p class="hero glitch layers" data-text="The end." style="margin-top: 200%"><span>The end.</span></p>
         </div>
-        <div class="footer">
-            <a href="https://discord.gg/Vkh4MgZ" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-                  <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-                </svg></a>
-        </div>
-        <script lang="text/javascript">
-            var video = document.querySelector('video');
-            var promise = video.play();
+    </div>
+    <div class="footer">
+        <a href="https://discord.gg/Vkh4MgZ" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-discord"
+                viewBox="0 0 16 16">
+                <path
+                    d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
+            </svg></a>
+    </div>
+    <script lang="text/javascript">
+        var video = document.querySelector('video');
+        var promise = video.play();
 
-            video.ontimeupdate = function() {
-                if (video.currentTime >= video.duration - 30) {
-                    //video.pause();
-                    document.querySelector('.msg').style.display = 'block';
+        video.ontimeupdate = function () {
+            if (video.currentTime >= video.duration - 30) {
+                //video.pause();
+                document.querySelector('.msg').style.display = 'block';
+                if (document.body.offsetHeight > document.body.offsetWidth) {
+                    try {
+                        window.screen.orientation.lock('landscape');
+                    } catch (error) {
+                        console.log(error)
+                    }
                 }
             }
-            video.onended = function() {
-                //video.style.display = 'none';
-                document.querySelector('.msg').style.display = 'block';
-            }
+        }
 
-            if (promise !== undefined) {
+        video.onended = function () {
+            //video.style.display = 'none';
+            document.querySelector('.msg').style.display = 'block';
+        }
+
+        if (promise !== undefined) {
             promise.then(_ => {
                 // Autoplay started!
             }).catch(error => {
                 document.querySelector('.logo-play').style.display = 'block';
             });
-            }
-            document.querySelector('.logo-play').onclick = function() {
-                this.style.display = 'none';
-                video.play();
-            }
-        </script>
-    </body>
+        }
+        document.querySelector('.logo-play').onclick = function () {
+            this.style.display = 'none';
+            video.play();
+        }
+    </script>
+</body>
+
 </html>
